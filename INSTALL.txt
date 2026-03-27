@@ -1,0 +1,269 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║     ATHENA — Guia Completo de Instalação e Deploy    ║
+# ╚══════════════════════════════════════════════════════╝
+
+# ─────────────────────────────────────────────────────────
+# ARQUIVOS DO PROJETO
+# ─────────────────────────────────────────────────────────
+# athena_agent.py      → Roda no PC/notebook alvo
+# athena_backend.py    → Roda na nuvem (Railway)
+# athena_dashboard.html→ Abre no navegador (qualquer lugar)
+# INSTALL.txt          → Este arquivo
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 1: BACKEND NA NUVEM (Railway — GRÁTIS)
+# ═══════════════════════════════════════════════════════
+
+## 1.1 — Criar arquivo requirements.txt:
+# fastapi==0.115.0
+# uvicorn[standard]==0.30.0
+# websockets==12.0
+# anthropic==0.40.0
+# supabase==2.9.0
+# python-dotenv==1.0.0
+# requests==2.32.0
+
+## 1.2 — Criar Procfile:
+# web: uvicorn athena_backend:app --host 0.0.0.0 --port $PORT
+
+## 1.3 — Deploy Railway:
+# 1. Acesse railway.app → cadastre-se com GitHub (grátis)
+# 2. New Project → Deploy from GitHub Repo
+#    (ou: "Deploy from local" e faça upload dos 2 arquivos)
+# 3. Em Variables, adicione:
+#    ANTHROPIC_API_KEY = sk-ant-api03-...
+#    SUPABASE_URL      = https://xxx.supabase.co       (opcional)
+#    SUPABASE_KEY      = eyJhbGciOiJIUzI1Ni...         (opcional)
+#    SECRET_KEY        = qualquer-string-aleatoria
+# 4. Railway gera URL automática: https://athena-xxx.railway.app
+# 5. Copie esta URL para usar no agente e no dashboard
+
+## 1.4 — Alternativa: Render.com (também grátis)
+# 1. render.com → New → Web Service → Connect GitHub
+# 2. Build Command: pip install -r requirements.txt
+# 3. Start Command: uvicorn athena_backend:app --host 0.0.0.0 --port $PORT
+# 4. Adicione as variáveis de ambiente
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 2: BANCO DE DADOS SUPABASE (GRÁTIS)
+# ═══════════════════════════════════════════════════════
+
+## 2.1 — Criar projeto em supabase.com (grátis)
+## 2.2 — No SQL Editor, execute:
+
+-- Tabela de comandos
+CREATE TABLE IF NOT EXISTS commands (
+    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    agent_id    TEXT NOT NULL,
+    command     TEXT NOT NULL,
+    action      TEXT,
+    params      JSONB,
+    priority    TEXT DEFAULT 'low',
+    source      TEXT DEFAULT 'dashboard',
+    confidence  FLOAT DEFAULT 1.0,
+    created_at  TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Tabela de resultados
+CREATE TABLE IF NOT EXISTS results (
+    id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    command_id  UUID REFERENCES commands(id),
+    agent_id    TEXT NOT NULL,
+    success     BOOLEAN,
+    output      TEXT,
+    duration    FLOAT,
+    timestamp   TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Tabela de agentes registrados
+CREATE TABLE IF NOT EXISTS agents (
+    id           TEXT PRIMARY KEY,
+    hostname     TEXT,
+    platform     TEXT,
+    capabilities JSONB,
+    last_seen    TIMESTAMPTZ DEFAULT NOW(),
+    online       BOOLEAN DEFAULT FALSE
+);
+
+-- Tabela de padrões aprendidos (sincronizado com agente)
+CREATE TABLE IF NOT EXISTS learned_patterns (
+    id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    agent_id      TEXT,
+    pattern       TEXT UNIQUE,
+    action        TEXT,
+    params        JSONB,
+    success_count INT DEFAULT 0,
+    fail_count    INT DEFAULT 0,
+    confidence    FLOAT DEFAULT 0.5,
+    last_used     TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Tabela de alertas
+CREATE TABLE IF NOT EXISTS alerts (
+    id        UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    level     TEXT NOT NULL,
+    title     TEXT NOT NULL,
+    message   TEXT,
+    agent_id  TEXT,
+    seen      BOOLEAN DEFAULT FALSE,
+    timestamp TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Índices para performance
+CREATE INDEX IF NOT EXISTS idx_commands_agent ON commands(agent_id);
+CREATE INDEX IF NOT EXISTS idx_results_command ON results(command_id);
+CREATE INDEX IF NOT EXISTS idx_alerts_seen ON alerts(seen);
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 3: AGENTE NO PC/NOTEBOOK ALVO
+# ═══════════════════════════════════════════════════════
+
+## 3.1 — Instalar Python 3.10+ em cada PC alvo:
+# https://python.org/downloads
+
+## 3.2 — Instalar dependências do agente:
+pip install websockets speechrecognition pyttsx3 pyautogui pillow requests pyperclip psutil
+
+## 3.3 — Para controle de navegador (opcional):
+pip install selenium webdriver-manager
+
+## 3.4 — Rodar o agente:
+# Windows:
+python athena_agent.py --id meu-pc-casa --url wss://athena-xxx.railway.app
+
+# Mac/Linux:
+python3 athena_agent.py --id meu-pc-casa --url wss://athena-xxx.railway.app
+
+## 3.5 — Iniciar automaticamente com o Windows:
+# Crie athena_start.bat:
+@echo off
+cd C:\caminho\para\athena
+python athena_agent.py --id meu-pc --url wss://athena-xxx.railway.app
+
+# Pressione Win+R → shell:startup
+# Coloque o atalho do .bat lá
+
+## 3.6 — Vários PCs:
+# Cada PC usa um ID diferente:
+# python athena_agent.py --id pc-escritorio --url wss://...
+# python athena_agent.py --id notebook-pessoal --url wss://...
+# python athena_agent.py --id pc-lab --url wss://...
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 4: DASHBOARD
+# ═══════════════════════════════════════════════════════
+
+## 4.1 — Abrir athena_dashboard.html no navegador
+## 4.2 — Clicar em ⚙️ Configurações e preencher:
+#   URL do Backend: https://athena-xxx.railway.app
+#   ID do Agente:   meu-pc-casa
+## 4.3 — O dashboard detecta os agentes automaticamente
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 5: VARIÁVEIS DE AMBIENTE (.env local)
+# ═══════════════════════════════════════════════════════
+
+# Crie arquivo .env no mesmo diretório do backend:
+
+ANTHROPIC_API_KEY=sk-ant-api03-SUA-CHAVE-AQUI
+SUPABASE_URL=https://SEU-PROJETO.supabase.co
+SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+SECRET_KEY=athena-super-secret-key-2024
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 6: TESTE RÁPIDO LOCAL (sem deploy)
+# ═══════════════════════════════════════════════════════
+
+## Terminal 1 — Backend:
+pip install fastapi uvicorn anthropic python-dotenv requests
+python athena_backend.py
+# → Rodando em http://localhost:8000
+
+## Terminal 2 — Agente:
+python athena_agent.py --id meu-pc --url ws://localhost:8000
+# → Agente conectado
+
+## Navegador:
+# Abra athena_dashboard.html
+# Configure URL: http://localhost:8000
+# Selecione agente: meu-pc
+# Envie comandos!
+
+
+# ═══════════════════════════════════════════════════════
+# PARTE 7: EXEMPLOS DE COMANDOS
+# ═══════════════════════════════════════════════════════
+
+# Sistema:
+"qual é o uso de CPU e RAM agora?"
+"liste os processos em execução"
+"encerre o processo chrome"
+"qual é meu IP externo?"
+"quanto espaço tem no disco C?"
+
+# Arquivos:
+"crie um arquivo texto em C:\temp com o conteúdo 'Olá Mundo'"
+"leia o arquivo C:\Users\Joao\relatorio.txt"
+"liste os arquivos da pasta Downloads"
+"mova o arquivo relatorio.pdf para a pasta Documentos"
+
+# Web:
+"abra o youtube.com no navegador"
+"pesquise no google: previsão do tempo São Paulo"
+"abra o gmail"
+
+# Automação:
+"pressione Ctrl+C"
+"abra o bloco de notas e digite: lembrete importante"
+"tire um screenshot da tela atual"
+"clique em x=500 y=300"
+
+# Relatórios:
+"crie um relatório com as informações do sistema"
+"gere um arquivo de texto com a lista de processos ativos"
+
+# Voz (diga 'Athena' e aguarde o sinal):
+"Athena, abra o navegador"
+"Athena, qual hora é agora?"
+"Athena, crie um relatório do sistema"
+
+
+# ═══════════════════════════════════════════════════════
+# ARQUITETURA DE APRENDIZADO
+# ═══════════════════════════════════════════════════════
+#
+# O agente aprende com CADA execução:
+# - Armazena padrão do comando + ação + resultado
+# - Calcula taxa de sucesso por padrão
+# - Quando confiança > 80%, executa sem chamar IA
+# - Isso economiza tokens e executa mais rápido
+#
+# Banco local: athena_local.db (SQLite no PC do agente)
+# Banco nuvem: Supabase (sincronizado)
+#
+# Nível de alertas:
+#   info     → informativo, cor azul
+#   warning  → atenção, cor amarela
+#   high     → urgente, cor laranja
+#   critical → crítico, cor vermelha (pisca)
+
+
+# ═══════════════════════════════════════════════════════
+# PRÓXIMOS PASSOS (roadmap)
+# ═══════════════════════════════════════════════════════
+# [ ] Integração com Selenium para automação web completa
+# [ ] Agendamento de tarefas (cron)
+# [ ] Integração com WhatsApp (enviar/receber comandos)
+# [ ] Macros gravadas e reproduzidas
+# [ ] Dashboard mobile (PWA)
+# [ ] Autenticação JWT no backend
+# [ ] Multi-usuário (vários operadores)
+# [ ] Plugins customizados por usuário
+# [ ] Integração com Google Workspace
+# [ ] Integração com Notion, Slack, Trello

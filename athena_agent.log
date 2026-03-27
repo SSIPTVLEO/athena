@@ -1,0 +1,86 @@
+2026-03-27 12:23:40,004 [ATHENA] INFO: Imported existing <module 'comtypes.gen' from 'C:\\Users\\Family\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\site-packages\\comtypes\\gen\\__init__.py'>
+2026-03-27 12:23:40,005 [ATHENA] INFO: Using writeable comtypes cache directory: 'C:\Users\Family\AppData\Local\Programs\Python\Python313\Lib\site-packages\comtypes\gen'
+2026-03-27 12:23:42,434 [ATHENA] INFO: Motor de voz TTS iniciado
+2026-03-27 12:23:42,435 [ATHENA] INFO: Reconhecimento de voz iniciado
+2026-03-27 12:23:50,303 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:23:51,277 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:23:54,279 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:23:54,284 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:23:57,302 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:23:57,308 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:00,319 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:00,323 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:03,333 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:03,341 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:06,354 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:06,357 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:09,369 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:09,379 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:12,391 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:12,395 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:15,408 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:15,411 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:18,413 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:18,414 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:21,417 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:21,424 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:24,425 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:24,434 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:27,452 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:27,453 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:30,461 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:30,462 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:33,490 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:33,491 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:36,499 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:36,529 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:39,533 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:39,544 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:42,548 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:42,556 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:45,568 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:45,579 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:48,597 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:48,597 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:51,605 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:51,611 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:54,631 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:54,636 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:24:57,639 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:24:57,645 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:00,664 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:00,668 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:03,682 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:03,683 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:06,687 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:06,692 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:09,697 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:09,702 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:12,718 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:12,723 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:15,727 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:15,728 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:18,739 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:18,745 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:21,753 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:21,764 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:24,770 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:24,773 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:27,784 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:27,785 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:30,797 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:30,801 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:33,808 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:33,816 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:36,827 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:36,835 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:39,837 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:39,838 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:42,851 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:42,855 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:45,870 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:45,873 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:48,880 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:48,882 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-03-27 12:25:51,892 [ATHENA] INFO: Conectando ao backend: ws://localhost:8000/ws/agente-1
+2026-03-27 12:25:51,894 [ATHENA] ERROR: Erro inesperado: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
